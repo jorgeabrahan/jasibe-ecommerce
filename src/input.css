@@ -1,0 +1,44 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: 'Tw-Cen-MT';
+  src: url('./assets/fonts/tw-cen-mt.ttf');
+}
+
+@font-face {
+  font-family: 'Myriad-Variable-Concept';
+  src: url('./assets/fonts/myriad-variable-concept.otf');
+}
+
+.delimiter {
+  @apply mx-auto w-full max-w-[1400px] px-2 md:px-4;
+}
+
+.cx-scrollbar::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+/* Track */
+
+.cx-scrollbar::-webkit-scrollbar-track {
+  background: rgba(140, 140, 140, 0.2);
+  border-radius: 10px;
+  -webkit-transition: background 300ms ease-in-out;
+  transition: background 300ms ease-in-out;
+}
+
+.cx-scrollbar::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background: rgba(255, 0, 0, 0.4)
+}
+
+.cx-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: rgba(223, 7, 7, 0.679)
+}
+
+body {
+    @apply bg-lavender cx-scrollbar;
+}
