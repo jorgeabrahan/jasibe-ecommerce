@@ -12,7 +12,7 @@ export const SplideProduct = ({
   showCartButton = true,
 }) => {
   const { cart, setCartItem } = cartStore((store) => store)
-  const { favourites, setFavouritesItem } = favouritesStore(store => store)
+  const { favourites, removeFromFavourites, setFavouritesItem } = favouritesStore(store => store)
   const addToCart = () => {
     if (isProductInArray(product.id, cart)) {
       toast.error('El producto ya esta en el carrito')
@@ -23,7 +23,8 @@ export const SplideProduct = ({
   }
   const addToFavourites = () => {
     if (isProductInArray(product.id, favourites)) {
-      toast.error('El producto ya esta en favoritos')
+      removeFromFavourites(product.id)
+      toast.success('Producto eliminado de favoritos')
       return
     }
     setFavouritesItem(product)

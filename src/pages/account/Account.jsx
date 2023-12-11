@@ -3,13 +3,14 @@ import { useNavigate } from 'react-router-dom'
 import { useEffect } from 'react'
 import { CopyButton } from '../../general'
 import { SplideLayout } from '../../general/SplideLayout'
-import { cartStore, favouritesStore } from '../../stores'
+import { cartStore, favouritesStore, historyStore } from '../../stores'
 import { SplideSlide } from '@splidejs/react-splide'
 import { SplideProduct } from '../../general/SplideProduct'
 
 export const Account = () => {
   const { user } = authStore((store) => store)
   const { favourites } = favouritesStore((store) => store)
+  const { history } = historyStore(store => store)
   const { cart } = cartStore((store) => store)
   const navigate = useNavigate()
   // si el usuario no esta logueado redirigir a la pagina de inicio de sesión
@@ -42,7 +43,7 @@ export const Account = () => {
                 favourites?.map((product) => (
                   <SplideSlide key={product?.slug}>
                     <SplideProduct
-                      showFavouriteButton={false}
+                      showFavouriteButton={true}
                       product={product}
                     />
                   </SplideSlide>
@@ -75,6 +76,29 @@ export const Account = () => {
         ) : (
           <p className="text-xl text-center">
             Agregue productos al carrito para verlos aquí
+          </p>
+        )}
+      </section>
+      <section className="mb-10">
+        {history.length !== 0 ? (
+          <>
+            <h2 className="text-5xl font-title mb-5">Mi Historial</h2>
+            <SplideLayout label="Productos filtrados por categoria y publico objetivo">
+              {history.length !== 0 &&
+                history?.map((product) => (
+                  <SplideSlide key={product?.slug}>
+                    <SplideProduct
+                      showFavouriteButton={true}
+                      showCartButton={true}
+                      product={product}
+                    />
+                  </SplideSlide>
+                ))}
+            </SplideLayout>
+          </>
+        ) : (
+          <p className="text-xl text-center">
+            A medida visualices productos se agregaran a tu historial
           </p>
         )}
       </section>

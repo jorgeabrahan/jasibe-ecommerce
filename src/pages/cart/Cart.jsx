@@ -1,6 +1,7 @@
 import { authStore, cartStore } from '../../stores'
 import { PrimaryButton, SecondaryLink } from '../../general'
 import { CartProduct } from './CartProduct'
+import { formatAsCurrency } from '../../helpers/formatAsCurrency'
 
 export const Cart = () => {
   const { user } = authStore((store) => store)
@@ -14,7 +15,7 @@ export const Cart = () => {
   return (
     <main className="delimiter">
       <h2 className="text-5xl font-title mb-3">Carrito de compras</h2>
-      <div className='grid gap-3'>
+      <div className="grid gap-3">
         {cart.length !== 0 &&
           cart?.map((product) => (
             <CartProduct key={product?.slug} product={product} />
@@ -26,6 +27,14 @@ export const Cart = () => {
           artículos agregados al carrito
         </p>
       )}
+
+      <p className="text-2xl text-right">
+        <strong>Total carrito: </strong>{' '}
+        {formatAsCurrency(cart.reduce(
+          (acc, current) => acc + current?.metadata?.price * current?.amount,
+          0
+        )?.toFixed(2))}
+      </p>
       <div className="flex justify-end gap-3 mt-5">
         <SecondaryLink to="/">Seguir comprando</SecondaryLink>
         <PrimaryButton>Enviar carrito</PrimaryButton>

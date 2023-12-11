@@ -16,4 +16,5 @@ import { Instagram } from "./Instagram";
 import { Chat } from "./Chat";
 import { Mail } from "./Mail";
 import { Delete } from './Delete'
-export { Cart, Home, User, Menu, Favourite, Login, Logout, Google, Copy, AddToCart, Heart, HeartFilled, Contact, Instagram, Chat, Mail, Delete }
+import { Terms } from "./Terms";
+export { Cart, Home, User, Menu, Favourite, Login, Logout, Google, Copy, AddToCart, Heart, HeartFilled, Contact, Instagram, Chat, Mail, Delete, Terms }

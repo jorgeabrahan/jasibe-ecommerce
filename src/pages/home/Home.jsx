@@ -9,11 +9,12 @@ import { SplideLayout } from '../../general/SplideLayout'
 import { AllYouNeed, Entrega } from '../../assets/images/home'
 import { AmazonLogo, SheinLogo } from '../../assets/images'
 import { Question } from './Question'
+import { Chat, Contact, Instagram, Mail } from '../../assets/icons'
 
 export const Home = () => {
   const { products, targetAudiences, categories, recentProducts } =
     productStore((store) => store)
-  const {user} = authStore(store => store)
+  const { user } = authStore((store) => store)
   const [activeAudience, setActiveAudience] = useState(null)
   const [categoriesByAudience, setCategoriesByAudience] = useState(categories)
   const [activeCategory, setActiveCategory] = useState(null)
@@ -102,7 +103,10 @@ export const Home = () => {
           {productsFiltered.length !== 0 &&
             productsFiltered?.map((product) => (
               <SplideSlide key={product?.slug}>
-                <SplideProduct showFavouriteButton={(user?.uid !== '' && user?.uid !== null)} product={product} />
+                <SplideProduct
+                  showFavouriteButton={user?.uid !== '' && user?.uid !== null}
+                  product={product}
+                />
               </SplideSlide>
             ))}
         </SplideLayout>
@@ -126,7 +130,10 @@ export const Home = () => {
         <SplideLayout>
           {recentProducts?.map((product) => (
             <SplideSlide key={product?.slug}>
-              <SplideProduct showFavouriteButton={(user?.uid !== '' && user?.uid !== null)} product={product} />
+              <SplideProduct
+                showFavouriteButton={user?.uid !== '' && user?.uid !== null}
+                product={product}
+              />
             </SplideSlide>
           ))}
         </SplideLayout>
@@ -167,11 +174,11 @@ export const Home = () => {
           </a>
         </div>
       </section>
-      <section className='mb-20'>
+      <section className="mb-20">
         <h2 className="text-center text-5xl font-title mb-5">
           ¿Tienes mas preguntas?
         </h2>
-        <div className='grid gap-4'>
+        <div className="grid gap-4">
           <Question
             question="¿Cuáles son los métodos de pago aceptados?"
             answer="Aceptamos pagos con transferencia bancaria, pagos al Recibir"
@@ -212,6 +219,96 @@ export const Home = () => {
             question="¿Hacen envíos nacionales?"
             answer="Sí, realizamos envíos a nivel nacional Los tiempos de entrega y costos pueden variar según el lugar donde se encuentre el cliente."
           />
+        </div>
+      </section>
+      <section>
+        <h2 className="text-4xl text-center">Sobre Nosotros</h2>
+        <div className='my-5 max-w-[1000px] mx-auto'>
+          <h2 className="text-3xl font-cursive text-center">Misión</h2>
+          <p>
+            Nuestra misión es ofrecer a nuestros clientes joyería de alta calidad
+            y belleza excepcional. Nos esforzamos por ser la elección preferida de
+            quienes buscan piezas únicas y elegantes que realzan su estilo y
+            expresen su individualidad. Nos comprometemos a proporcionar un
+            servicio excepcional, calidad superior y una experiencia de compra sin
+            igual, todo respaldado por nuestra pasión por la excelencia y la
+            satisfacción del cliente.
+          </p>
+        </div>
+        <div className='my-5 max-w-[1000px] mx-auto'>
+          <h2 className="text-3xl font-cursive text-center">Visión</h2>
+          <p>
+            Nuestra visión es ser reconocidos con una amplia gama de productos que
+            reflejen la última tendencia y estilo. Buscamos expandir nuestro
+            alcance global y establecer relaciones duraderas con nuestros
+            clientes, brindando confianza y satisfacción en cada compra. Nos
+            esforzamos por ser innovadores en el diseño de joyería y mantener un
+            compromiso inquebrantable con la calidad y la ética en cada paso de
+            nuestra cadena de suministro, contribuyendo al bienestar de nuestros
+            empleados y al desarrollo sostenible de la industria de la joyería.
+          </p>
+        </div>
+        <div className='my-5 max-w-[1000px] mx-auto'>
+          <h2 className="text-3xl font-cursive text-center">
+            Historia de la empresa
+          </h2>
+          <p>
+            Jasibe es una empresa dedicada a la venta de joyería de alta calidad y
+            exquisita belleza a través de la plataforma de Instagram, Facebook,
+            TikTok. Nuestra pasión por la joyería excepcional y nuestra dedicación
+            a la satisfacción del cliente son los pilares fundamentales de nuestra
+            operación. Nos enorgullece ofrecer a nuestros clientes una amplia
+            selección de joyería que abarca desde clásicos atemporales hasta
+            diseños vanguardistas, todos meticulosamente seleccionados para
+            cumplir con los estándares más altos de calidad y elegancia. Cada
+            pieza que ofrecemos refleja artesanía y atención al detalle, y muchas
+            de ellas son auténticas obras de arte.
+          </p>
+        </div>
+      </section>
+      <section className="mb-10">
+        <h2 className="text-3xl font-cursive text-center">Contactanos</h2>
+        <p className="text-center text-slate-700 mb-5 max-w-[800px] mx-auto">
+          Si lo prefieres puedes contactarnos por cualquiera de estos medios:
+        </p>
+        <div className="grid gap-4 justify-center">
+          <a
+            className="flex items-center gap-2 text-xl"
+            href="tel:+50494785701"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <Contact color="#000" />
+            +504 9478-5701
+          </a>
+          <a
+            className="flex items-center gap-2 text-xl"
+            href="mailto:Katherinenavarrete611@gmail.com?subject=Interesado en la importación de productos&body=Estoy interesado en obtener más información sobre la importación de productos y el costo de esto. Vengo de la página web."
+            target="_blank"
+            rel="noreferrer"
+          >
+            <Mail />
+            Katherinenavarrete611@gmail.com
+          </a>
+          {/* whatsapp */}
+          <a
+            className="flex items-center gap-2 text-xl"
+            href="https://wa.me/50494785701?text=Vengo del sitio web y estoy interesado en obtener más información sobre los productos y la importación de los mismos."
+            target="_blank"
+            rel="noreferrer"
+          >
+            <Chat />
+            9478-5701
+          </a>
+          <a
+            className="flex items-center gap-2 text-xl"
+            href="https://www.instagram.com/jasibe.hn/"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <Instagram />
+            @jasibe.hn
+          </a>
         </div>
       </section>
     </main>

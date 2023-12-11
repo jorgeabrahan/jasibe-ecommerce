@@ -1,4 +1,4 @@
-import { Contact, Home, Login, Logout, User } from '../../assets/icons'
+import { Contact, Home, Login, Logout, User, Terms } from '../../assets/icons'
 import { logoutFirebase } from '../../firebase/providers'
 import { useAuth } from '../../hooks'
 import { AUTH_STATUS, authStore } from '../../stores/authStore'
@@ -19,6 +19,11 @@ export const Navlinks = () => {
       <li>
         <NavLink tooltip='Contacto' to="/contacto">
           <Contact />
+        </NavLink>
+      </li>
+      <li>
+        <NavLink tooltip='Términos y condiciones' to="/terminos-y-condiciones">
+          <Terms />
         </NavLink>
       </li>
       {status !== AUTH_STATUS.authorized && (

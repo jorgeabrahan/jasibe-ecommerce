@@ -110,16 +110,16 @@ export const Contact = () => {
         <h2 className='text-4xl font-title text-center'>Contactanos</h2>
         <p className='text-center text-slate-700 mb-5 max-w-[800px] mx-auto'>Si lo prefieres puedes contactarnos por cualquiera de estos medios:</p>
         <div className='grid gap-4 justify-center'>
-          <a className='flex items-center gap-2 text-xl' href="" target='_blank' rel='noreferrer'>
+          <a className='flex items-center gap-2 text-xl' href="tel:+50494785701" target='_blank' rel='noreferrer'>
             <ContactIcon color='#000' />
             +504 9478-5701
           </a>
-          <a className='flex items-center gap-2 text-xl' href="" target='_blank' rel='noreferrer'>
+          <a className='flex items-center gap-2 text-xl' href="mailto:Katherinenavarrete611@gmail.com?subject=Interesado en la importación de productos&body=Estoy interesado en obtener más información sobre la importación de productos y el costo de esto. Vengo de la página web." target='_blank' rel='noreferrer'>
             <Mail />
             Katherinenavarrete611@gmail.com
           </a>
           {/* whatsapp */}
-          <a className='flex items-center gap-2 text-xl' href="" target='_blank' rel='noreferrer'>
+          <a className='flex items-center gap-2 text-xl' href="https://wa.me/50494785701?text=Vengo del sitio web y estoy interesado en obtener más información sobre los productos y la importación de los mismos." target='_blank' rel='noreferrer'>
             <Chat />
             9478-5701
           </a>

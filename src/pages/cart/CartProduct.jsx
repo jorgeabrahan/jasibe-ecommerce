@@ -8,7 +8,7 @@ import { Link } from 'react-router-dom'
 export const CartProduct = ({
   product = { thumbnail: '', slug: '', title: '', metadata: { price: 0 } }
 }) => {
-  const { removeItem } = cartStore((store) => store)
+  const { removeItem, setProductAmount } = cartStore((store) => store)
   const handleRemoveFromCart = () => {
     removeItem(product.id)
     toast.success('Producto eliminado del carrito')
@@ -16,7 +16,7 @@ export const CartProduct = ({
   return (
     <div className="flex gap-4 flex-col sm:flex-row">
       <img
-        className="sm:h-[100px] w-full sm:w-[100px] object-cover"
+        className="sm:h-[200px] w-full sm:w-[200px] object-cover"
         src={product?.thumbnail}
         alt={product?.slug}
       />
@@ -24,8 +24,29 @@ export const CartProduct = ({
         <p className="text-sm text-slate-800 line-clamp-2 leading-tight mb-1">
           {product?.title}
         </p>
-        <p className="font-semibold">
-          {formatAsCurrency(product?.metadata?.price)}
+        <p className='mb-2'>
+          <strong>Precio: </strong> {formatAsCurrency(product?.metadata?.price)}
+        </p>
+        <form className='flex items-center gap-2 mb-2'>
+            <strong>
+                Cantidad:
+            </strong>
+            <select name="amount" id="amount" defaultValue={product?.amount} onChange={(e) => setProductAmount(product?.id, e.target.value)}>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+            </select>
+        </form>
+        <p className='mb-4'>
+            <strong>Total: </strong>
+            {formatAsCurrency(product?.metadata?.price * product?.amount)}
         </p>
         <div className='flex items-center gap-3'>
             <button
