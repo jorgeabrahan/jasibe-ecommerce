@@ -1,3 +1,5 @@
 export * from './authStore'
 export * from './navStore'
 export * from './productStore'
+export * from './cartStore'
+export * from './favouritesStore'

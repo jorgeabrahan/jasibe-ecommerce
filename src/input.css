@@ -42,3 +42,15 @@
 body {
     @apply bg-lavender cx-scrollbar;
 }
+
+.iti {
+  width: 100%;
+  border-radius: 30px;
+}
+.iti__selected-flag {
+  border-top-left-radius: 30px;
+  border-bottom-left-radius: 30px;
+}
+.iti__country-list {
+  z-index: 20;
+}

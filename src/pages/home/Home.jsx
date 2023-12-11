@@ -1,11 +1,11 @@
 import { Category } from './Category'
-import { productStore } from '../../stores'
+import { authStore, productStore } from '../../stores'
 import React, { useEffect, useState } from 'react'
 import { CategorySelector } from './CategorySelector'
 import { SplideSlide } from '@splidejs/react-splide'
 import '@splidejs/react-splide/css'
-import { SplideProduct } from './SplideProduct'
-import { SplideLayout } from './SplideLayout'
+import { SplideProduct } from '../../general/SplideProduct'
+import { SplideLayout } from '../../general/SplideLayout'
 import { AllYouNeed, Entrega } from '../../assets/images/home'
 import { AmazonLogo, SheinLogo } from '../../assets/images'
 import { Question } from './Question'
@@ -13,6 +13,7 @@ import { Question } from './Question'
 export const Home = () => {
   const { products, targetAudiences, categories, recentProducts } =
     productStore((store) => store)
+  const {user} = authStore(store => store)
   const [activeAudience, setActiveAudience] = useState(null)
   const [categoriesByAudience, setCategoriesByAudience] = useState(categories)
   const [activeCategory, setActiveCategory] = useState(null)
@@ -101,7 +102,7 @@ export const Home = () => {
           {productsFiltered.length !== 0 &&
             productsFiltered?.map((product) => (
               <SplideSlide key={product?.slug}>
-                <SplideProduct product={product} />
+                <SplideProduct showFavouriteButton={(user?.uid !== '' && user?.uid !== null)} product={product} />
               </SplideSlide>
             ))}
         </SplideLayout>
@@ -125,7 +126,7 @@ export const Home = () => {
         <SplideLayout>
           {recentProducts?.map((product) => (
             <SplideSlide key={product?.slug}>
-              <SplideProduct product={product} />
+              <SplideProduct showFavouriteButton={(user?.uid !== '' && user?.uid !== null)} product={product} />
             </SplideSlide>
           ))}
         </SplideLayout>

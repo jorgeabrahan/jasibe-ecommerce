@@ -12,5 +12,8 @@ import { AddToCart } from "./AddToCart";
 import { Heart } from "./Heart";
 import { HeartFilled } from "./HeartFilled";
 import { Contact } from "./Contact";
-
-export { Cart, Home, User, Menu, Favourite, Login, Logout, Google, Copy, AddToCart, Heart, HeartFilled, Contact }
+import { Instagram } from "./Instagram";
+import { Chat } from "./Chat";
+import { Mail } from "./Mail";
+import { Delete } from './Delete'
+export { Cart, Home, User, Menu, Favourite, Login, Logout, Google, Copy, AddToCart, Heart, HeartFilled, Contact, Instagram, Chat, Mail, Delete }
