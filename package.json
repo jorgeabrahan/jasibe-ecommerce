@@ -13,6 +13,7 @@
   "dependencies": {
     "@cosmicjs/sdk": "^1.0.11",
     "@splidejs/react-splide": "^0.7.12",
+    "autoprefixer": "^10.4.16",
     "firebase": "^10.7.0",
     "localforage": "^1.10.0",
     "match-sorter": "^6.3.1",
