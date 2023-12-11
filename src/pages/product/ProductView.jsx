@@ -33,8 +33,7 @@ export const ProductView = () => {
   }, [user, product, addHistoryItem])
   const addToCart = () => {
     if (isProductInArray(product.id, cart)) {
-      removeFromFavourites(product.id)
-      toast.success('Producto eliminado de favoritos')
+      toast.error('El producto ya esta en el carrito, si desea cambiar la cantidad debe acceder al carrito.')
       return
     }
     setCartItem(product, amount)
@@ -42,7 +41,8 @@ export const ProductView = () => {
   }
   const addToFavourites = () => {
     if (isProductInArray(product.id, favourites)) {
-      toast.error('El producto ya esta en favoritos')
+      removeFromFavourites(product.id)
+      toast.success('Producto eliminado de favoritos')
       return
     }
     setFavouritesItem(product)

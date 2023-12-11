@@ -15,7 +15,7 @@ export const SplideProduct = ({
   const { favourites, removeFromFavourites, setFavouritesItem } = favouritesStore(store => store)
   const addToCart = () => {
     if (isProductInArray(product.id, cart)) {
-      toast.error('El producto ya esta en el carrito')
+      toast.error('El producto ya esta en el carrito, si desea cambiar la cantidad debe acceder al carrito.')
       return
     }
     setCartItem(product)
