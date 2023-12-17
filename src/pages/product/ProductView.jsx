@@ -23,7 +23,7 @@ export const ProductView = () => {
   const { products } = productStore((store) => store)
   const navigate = useNavigate()
   const [product, setProduct] = useState({})
-  const [amount, setAmount] = useState(0)
+  const [amount, setAmount] = useState(1)
   useEffect(() => {
     // si el usuario esta autenticado
     if (user?.uid !== '' && user?.uid !== null) {

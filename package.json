@@ -14,7 +14,7 @@
     "@cosmicjs/sdk": "^1.0.11",
     "@splidejs/react-splide": "^0.7.12",
     "autoprefixer": "^10.4.16",
-    "firebase": "^10.7.0",
+    "firebase": "^10.7.1",
     "localforage": "^1.10.0",
     "match-sorter": "^6.3.1",
     "prop-types": "^15.8.1",
